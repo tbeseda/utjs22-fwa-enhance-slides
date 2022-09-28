@@ -1,0 +1,500 @@
+<my-presentation>
+  <!--Welcome-->
+  <section>
+    <section data-background-color="#04314D">
+      <img src="/_static/img/my-utjs-slide.png">
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+        ## About me
+
+        Taylor Beseda aka <mark>tbeseda</mark>
+
+        - he/him
+        - Colorado Front Range 🏔️
+        - Adequate cook 🥘
+        - Discord power user
+        - <small>mid-1970s JDM longbed pickup truck enthusiast</small> 🛻
+        - 15 year ECMAScript thrill-seeker
+        - Dev Ex at Begin.com
+      </textarea>
+    </section>
+  </section>
+
+  <!--The Plan-->
+  <section data-markdown>
+    <textarea data-template>
+      ### The Plan
+
+      - What is a "Dynamic Web App"❓
+      - Traditional 3-tiered architecture 🏢
+      - More recent approaches
+      - FWA: a different approach ✨
+      - Look at some tooling:
+        - Architect <small>(Terraform, <u>S</u>erverless, AWS CDK)</small>
+        - Begin CLI <small>(AWS CLI, Zeit, Fly.io)</small>
+        - Enhance <small>(Next.js, Svelte Kit, Redwood)</small>
+    </textarea>
+  </section>
+
+  <!--Dynamic Web App-->
+  <section>
+    <section data-markdown>
+      <textarea data-template>
+        ## "Dynamic Web App"
+
+        - **Not static!** HTML is rendered on demand
+          - Views not required, can be an API
+        - Database-backed: full stack
+          - Sessions, authorization, persistence
+        - Single monolith or many services
+      </textarea>
+    </section>
+
+    <section>
+      <div class="my-grid">
+        <img width="150" class="fragment fade-down" src="/_static/img/logos/rails.png">
+        <img width="150" class="fragment fade-up" src="/_static/img/logos/wordpress.png">
+        <img width="200" class="fragment fade-down" src="/_static/img/logos/laravel.png">
+        <img width="150" class="fragment fade-up" src="/_static/img/logos/django.png">
+        <img width="180" class="fragment fade-down" src="/_static/img/logos/express.png">
+        <img width="150" class="fragment fade-up" src="/_static/img/logos/redwood.png">
+        <img height="150" class="fragment fade-down" src="/_static/img/logos/firebase.png">
+        <img width="250" class="fragment fade-up" src="/_static/img/logos/actix.png">
+        <img width="200" class="fragment fade-down" src="/_static/img/logos/echo.svg">
+      </div>
+    </section>
+  </section>
+
+  <!--3-Tier Architecture-->
+  <section>
+    <section>
+      <h1>3-Tier Architecture</h1>
+      <div class="my-grid">
+        <div class="fragment" data-fragment-index="1">
+          <p>Data</p>
+          <code class="fragment" data-fragment-index="4">model</code>
+        </div>
+        <div class="fragment" data-fragment-index="2">
+          <p>Application</p>
+          <code class="fragment" data-fragment-index="6">controller</code>
+        </div>
+        <div class="fragment" data-fragment-index="3">
+          <p>Presentation</p>
+          <code class="fragment" data-fragment-index="5">view</code>
+        </div>
+      </div>
+      <hr>
+      <h3 class="fragment fade-up">MVC</h3>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+        ## Traditional 3-Tier Troubles
+
+        - Logical architecture != physical infra 🧠
+          - Difficult to deploy without versioned infra
+          - 🐌 Slow rolling deployment
+          - Ever scale horizontally?
+        - Slow database == slow HTML render 😭
+        - 💰 Maintenance costs are no joke
+        - Background jobs help performance but pub/sub, queues, and cron are clunky bolt-ons 🔩
+      </textarea>
+    </section>
+  </section>
+
+  <!--Jamstack + SPAs-->
+  <section>
+    <section class="left">
+      <h1 class="r-fit-text">A new paradigm: Jamstack(ish) SPAs</h1>
+
+      <div class="fragment">
+        <h3>Totally static</h3>
+        <p>
+          Pre-rendering HTML and served via CDN. Dynamic functionality initiated by JavaScript at runtime.
+        </p>
+      </div>
+
+      <div class="fragment">
+        <h3>Immutable deployment</h3>
+        <p>
+          Authortime build of all presentation/business logic delivered as static assets.
+        </p>
+      </div>
+
+      <div class="fragment">
+        <h3>Outsourced backend</h3>
+        <p>
+          Empowers frontend web developers.
+        </p>
+      </div>
+    </section>
+
+    <section class="left">
+      <h1 class="r-fit-text">Jamstack Tradeoffs</h1>
+
+      <div class="fragment fade-right">
+        <h3>Beholden to client devices</h3>
+        <ul>
+          <li>JavaScript runtimes</li>
+          <li>Performance + Network</li>
+        </ul>
+      </div>
+
+      <div class="fragment fade-right">
+        <h3>Not dynamic by default</h3>
+        <ul>
+          <li>Base state is stateless</li>
+        </ul>
+      </div>
+
+      <div class="fragment fade-right">
+        <h3>Services, tooling, plugins, etc.</h3>
+        <ul>
+          <li>Outsourced parts are moving targets</li>
+          <li>All need to be glued together</li>
+          <li>Build times, transpiling, and configuraiton</li>
+        </ul>
+      </div>
+    </section>
+  </section>
+
+  <!--FWA-->
+  <section class="fancy" data-background-color="white">
+    <section>
+      <h1 class="r-fit-text">Functional Web Apps</h1>
+      <blockquote class="left">
+        Functional Web App (FWA) is an architectural pattern for building web applications and APIs. It empowers
+        developers with the flexibility of dynamic, full-stack applications paired with the ease of scaling a static
+        website.
+      </blockquote>
+      <p><a href="https://fwa.dev" target="_blank">https://fwa.dev</a></p>
+    </section>
+    <section>
+      <img src="/_static/img/screens/fwa-3-facets.png">
+    </section>
+    <section>
+      <img src="/_static/img/screens/fwa-why-build.png">
+    </section>
+    <section>
+      <img src="/_static/img/screens/fwa-superpowers.png">
+    </section>
+  </section>
+
+  <!--Enhance-->
+  <section class="fancy" data-background-color="white">
+    <section class="left">
+      <h1 class="fragment">But how, though?</h1>
+      <h2 class="fragment">Like, how do I actually build a Functional Web App? 🧐</h2>
+      <h3 class="fragment">😧 I'm going to have to learn new things, aren't I?</h3>
+      <p class="fragment">And can I even deploy it? Don't tell me to log in to AWS... 🙀</h4>
+    </section>
+
+    <section>
+      <h1>Architect</h1>
+      <img class="fragment" width="300" src="/_static/img/logos/arc.png">
+      <p class="fragment"><a hre="https://arc.codes" target="_blank">https://arc.codes</a></p>
+    </section>
+
+    <section data-background-image="/_static/img/screens/enhance-intro.jpeg">
+    </section>
+
+    <section class="left">
+      <h1 class="r-fit-text">The Web Native framework for your FWA</h1>
+      <ul>
+        <li>🥇 HTML first</li>
+        <li>Zero JavaScript <mark class="fragment">until you want it, of course!</mark></li>
+        <li>SSR custom elements for real <em>Web Components</em> ✅</li>
+        <li>✨ Progressively <em><strong>Enhance</strong></em>d</li>
+        <li>"Web Native"</li>
+      </ul>
+    </section>
+
+    <section class="left">
+      <h1 class="r-fit-text">Let's take a look at a sample project: "UtahJS Registration"</h1>
+      <pre>
+        <code data-trim data-noescape class="language-plaintext">
+          npm create @enhance utahjs-registration
+        </code>
+      </pre>
+      <pre>
+        <code data-trim data-noescape data-line-numbers="1-100|10-12|4-9|2-3|13-17" class="language-plaintext">
+          app
+          ├── api ............... data routes
+          │   └── register.mjs
+          ├── elements .......... custom element pure functions
+          │   ├── utjs-header.mjs
+          │   ├── utjs-footer.mjs
+          │   └── register
+          │       ├── form.mjs
+          │       └── badge.mjs
+          ├── pages ............. file based routing
+          │   ├── index.html
+          │   └── register.html
+          └── public ............ static assets
+              ├── favicon.ico
+              ├── logo.png
+              ├── speakers/
+              └── styles.css
+        </code>
+      </pre>
+    </section>
+  </section>
+
+  <section class="fancy" data-background-color="white">
+    <section class="left">
+      <p>app/pages/index.html &mdash; our home page</p>
+      <pre>
+        <code data-line-numbers="1-100|1-9|11-16|18" class="language-html" data-trim data-noescape>
+          <script type="text/template">
+            <utjs-header today="2022-09-23" darkMode>
+              <h1 slot="title">UtahJS 2022</slot>
+
+              <div class="featured-speaker">
+                <h3>Featured Speaker</h3>
+                <img src="/_static/speakers/courtney.jpg">
+                <p>Courtney Nguyen</p>
+              </div>
+            </utjs-header>
+
+            <main>
+              <p>We're excited to have you!</p>
+              <conf-venue class="mb4"></conf-venue>
+              <conf-schedule year="2022"></conf-schedule>
+              <a href="/register">Register now</a>
+            </main>
+
+            <utjs-footer></utjs-footer>
+          </script>
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>app/elements/utjs-header.mjs &mdash; The conference page</p>
+      <pre>
+        <code data-line-numbers="1-100|2-3|5|6-15|17-20|22-25" class="language-javascript" data-trim data-noescape>
+          <script type="text/template">
+            export default function UtjsHeader({ html, state }) {
+              const { attrs } = state // element attributes
+              const { today, darkMode } = attrs
+
+              return html`
+                <style>
+                  header {
+                    display: flex;
+                    flex-flow: row wrap;
+                    color: ${darkMode ? '#fff' : '#222'};
+                  }
+                  :slotted(*) {
+                    background-color: DodgerBlue;
+                  }
+                </style>
+
+                <header>
+                  <slot name="title">Default Page Title</slot>
+                  <slot></slot>
+                </header>
+
+                <!--"scrip" because slides are real HTML, use "script"-->
+                <scrip type="module">
+                  console.log('Header loaded!')
+                </scrip>
+              `
+            }
+          </script>
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>What does this render?</p>
+      <pre>
+        <code data-line-numbers="1-18|20-30|22|24-28" class="language-html" data-trim data-noescape>
+          <script type="text/template">
+            <head>
+              ...
+              <!--styles and scripts are hoisted into the <head> tag-->
+                <style>
+                  utjs-header header {
+                    display: flex;
+                    flex-flow: row wrap;
+                    color: ${darkMode ? '#fff' : '#222'};
+                  }
+                  utjs-header :slotted(*) {
+                    background-color: DodgerBlue;
+                  }
+                  </style>
+                <scrip type="module">
+                  console.log('Header loaded!')
+                </scrip>
+                ...
+              </head>
+
+            <utjs-header>
+              <header>
+                <h1 slot="title">UtahJS 2022</slot> <!--our named slot-->
+
+                <div> <!--the unnamed slot content-->
+                  <h3>Featured Speaker</h3>
+                  <img src="/_static/speakers/courtney.jpg">
+                  <p>Courtney Nguyen</p>
+                </div>
+              </header>
+            </utjs-header>
+          </script>
+        </code>
+      </pre>
+    </section>
+  </section>
+
+  <!--Enhance 2-->
+  <section class="fancy" data-background-color="white">
+    <section class="left">
+      <pre>
+        <code data-trim data-noescape data-line-numbers="1-100|11,13,5,6|3,12,7-9" class="language-plaintext">
+          app
+          ├── api
+          │   └── register.mjs
+          ├── elements
+          │   ├── utjs-header.mjs
+          │   ├── utjs-footer.mjs
+          │   └── register
+          │       ├── form.mjs
+          │       └── badge.mjs
+          ├── pages
+          │   ├── index.html
+          │   └── register.html
+          └── public/
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>app/api/register.mjs &mdash; Handle data for register.html</p>
+      <pre>
+        <code data-line-numbers="1-100|1-4|6|7-9|11-17|19-27" class="language-javascript" data-trim data-noescape>
+          import db from 'my-fake-managed-database'
+
+          const TOTAL_TICKETS = 9001
+          const data = await db.connect()
+
+          export async function get(request) { // GET request handler
+            const { session: { user } } = request
+            const user = await data.users.where(`id IS ${user.id}`)
+            const registeredCount = await data.registrations.all().length
+
+            return {
+              json: {
+                alreadyRegistered: user.registered || false,
+                remainingTickets: TOTAL_TICKETS - registeredCount
+              },
+              session: { /* add data to the session */ user }
+            }
+          }
+
+          export async function post(request) { // POST request handler
+            const user = await data.users.where(`id IS ${request.session.user.id}`)
+            await data.registrations.create({ user })
+
+            return {
+              location: '/register', // redirect back to GET /register
+            }
+          }
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>app/pages/register.html &mdash; our registration page 🤌</p>
+      <pre>
+        <code data-line-numbers="1-100|3" class="language-html" data-trim data-noescape>
+          <script type="text/template">
+            <utjs-header></utjs-header> <!--we covered this earlier-->
+
+            <register-form></register-form>
+
+            <utjs-footer></utjs-footer>
+          </script>
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>app/elements/register/form.mjs &mdash; Registration <mark>&lt;form&gt;</mark></p>
+      <pre>
+        <code data-line-numbers="1-100|2-3|5-11|13-16" class="language-javascript" data-trim data-noescape>
+          <script type="text/template">
+            export default function RegisterForm({ html, state }) {
+              const { store } = state // store is json from API handler
+              const { alreadyRegistered, remainingTickets } = store
+
+              if (!alreadyRegistered)
+                return html`
+                  <p>Only ${remainingTickets} tickets left!</p>
+                  <form action="/register" method="post">
+                    <button type="submit">Sign me up!</button>
+                  </form>
+                `
+
+              return html`
+                <p>You're all set. See you there!</p>
+                <register-badge></register-badge>
+              `
+            }
+          </script>
+        </code>
+      </pre>
+    </section>
+
+    <section class="left">
+      <p>app/elements/register/badge.mjs &mdash; registration</p>
+      <pre>
+        <code class="language-javascript" data-trim data-noescape>
+          <script type="text/template">
+            export default function RegisterBadge({ html }) {
+              return html`
+                <p>Share your official UtahJS Badge</p>
+                <scrip type="module" src="/_static/register-badge.mjs"> <!-- 👇 -->
+              `
+            }
+          </script>
+        </code>
+      </pre>
+
+      <pre>
+        <code data-line-numbers class="language-javascript" data-trim data-noescape>
+          // a wild web component appears! 🎉
+          class RegisterBadge extends HTMLElement {
+            constructor() {
+              super()
+              this.profilePicture = this.querySelector('img')
+            }
+
+            static get observedAttributes() {
+              return [ 'picture' ]
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) {
+              if (oldValue !== newValue) {
+                if (name === 'picture') this.profilePicture.src = newValue
+              }
+            }
+          }
+
+          customElements.define('register-badge', RegisterBadge)
+        </code>
+      </pre>
+    </section>
+  </section>
+
+  <!--Enhance 3-->
+  <section class="fancy" data-background-color="white">
+    <img src="/_static/img/logos/enhance-clouds.png">
+    <p><a href="https://fwa.dev" target="_blank">https://<strong>fwa.dev</strong></a></p>
+    <p><a href="https://enhance.dev" target="_blank">https://<strong>enhance.dev</strong></a></p>
+    <p><a href="https://arc.codes" target="_blank">https://<strong>arc.codes</strong></a></p>
+    <p><a href="https://begin.com" target="_blank">https://<strong>begin.com</strong></a></p>
+  </section>
+</my-presentation>

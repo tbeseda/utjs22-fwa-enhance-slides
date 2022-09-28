@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "npx arc sandbox"
+  },
+  "overrides": {
+    "@architect/plugin-bundles": "3.2.0-RC.0"
+  },
+  "dependencies": {
+    "@enhance/arc-plugin-enhance": "1.1.0",
+    "reveal.js": "^4.3.1"
+  },
+  "devDependencies": {
+    "@architect/architect": "10.6.0"
+  }
+}
